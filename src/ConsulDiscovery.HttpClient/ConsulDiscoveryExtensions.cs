@@ -12,7 +12,7 @@ namespace Microsoft.Extensions.DependencyInjection
             services.AddMvcCore().AddApplicationPart(typeof(ConsulDiscoveryExtensions).Assembly);// 注册 /HealthCheck
             services.Configure<ConsulDiscoveryOptions>(configuration.GetSection("ConsulDiscoveryOptions"));
             services.AddSingleton<DiscoveryClient>();
-            services.AddSingleton<DiscoveryHttpMessageHandler>();
+            services.AddTransient<DiscoveryHttpMessageHandler>();
             return services;
         }
 
